@@ -58,7 +58,7 @@
                 "passwordPattern": "Password must be at least 8 characters and contain uppercase, lowercase and numbers",
                 "passwordMismatch": "Password confirmation is incorrect",
                 "phoneRequired": "Phone number is required",
-                "phoneInvalid": "Please enter a valid Egyptian phone number"
+                "phoneInvalid": "Please enter a valid Egyptian phone number 01"
             }
         },
         "forgotPassword": {
