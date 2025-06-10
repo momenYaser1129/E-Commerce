@@ -33,7 +33,7 @@ export class LoginComponent {
 
   loginForm: FormGroup = this._FormBuilder.group({
     email: [null, [Validators.required, Validators.email]],
-    password: [null, [Validators.required, Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,}$/)]],
+    password: [null, [Validators.required, Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d@$!%*?&^#~()\-_=+{}[\]|\\:;\"'<>,./]{4,}$/)]],
   });
 
   confirmPassword(g: AbstractControl) {
