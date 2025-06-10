@@ -83,7 +83,7 @@
           @if(orders.get('city')?.getError('required')) {
             <p class="m-0">City is required</p>
           } @else if(orders.get('city')?.getError('pattern')) {
-            <span class="m-0 fs-6">City name should contain only letters</span>
+            <span class="m-0 fs-6">Must be at least 3 characters</span>
           }
         </div>
       }
