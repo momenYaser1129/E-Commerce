@@ -88,29 +88,29 @@ export class RegisterComponent {
   registerSubmit(): void {
     if (this.registerForm.valid) {
       this.isLoading = true;
+      this.msgError = ''; // Clear any previous error messages
       this._AuthService.setRegisterForm(this.registerForm.value).subscribe({
         next: (res) => {
-          // action after Res success
           if(res.message === "success") {
-            this.msgSuccess = true
-           setTimeout(() => {
-            this._Router.navigate(['/login'])
-           }, 2000);
+            this.msgSuccess = true;
+            setTimeout(() => {
+              this._Router.navigate(['/login']);
+            }, 2000);
           }
-          console.log(res);
           this.isLoading = false;
         },
         error: (err: HttpErrorResponse) => {
-          // Showing error in html for user
-          this.msgError = err.error.message;
-          console.log(err);
+          this.msgError = err.error.message || 'An error occurred during registration';
           this.isLoading = false;
+          // Mark form as touched to trigger validation messages
+          Object.keys(this.registerForm.controls).forEach(key => {
+            const control = this.registerForm.get(key);
+            control?.markAsTouched();
+          });
         },
       });
-    }
-    else {
-      this.registerForm.setErrors({mismatch: true})
-      this.registerForm.markAllAsTouched()
+    } else {
+      this.registerForm.markAllAsTouched();
     }
   }
 

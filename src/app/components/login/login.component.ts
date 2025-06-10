@@ -47,35 +47,28 @@ export class LoginComponent {
   loginSubmit(): void {
     if (this.loginForm.valid) {
       this.isLoading = true;
+      this.msgError = ''; // Clear any previous error messages
       this._AuthService.setloginForm(this.loginForm.value).subscribe({
         next: (res) => {
-          // action after Res success
           if (res.message === 'success') {
             this.msgSuccess = true;
-            //1- save Token
             localStorage.setItem('userToken', res.token);
-
-            // 2 - Decode Token
             this._AuthService.saveUserData();
-
-            //3- navigate home comp
-            // setTimeout(() => {
-            //   this._Router.navigate(['/home']);
-            // }, 2000);
             this._Router.navigate(['/home']);
           }
-          // console.log(res);
           this.isLoading = false;
         },
         error: (err: HttpErrorResponse) => {
-          // Showing error in html for user
-          this.msgError = err.error.message;
-          console.log(err);
+          this.msgError = err.error.message || 'An error occurred during login';
           this.isLoading = false;
+          // Mark form as touched to trigger validation messages
+          Object.keys(this.loginForm.controls).forEach(key => {
+            const control = this.loginForm.get(key);
+            control?.markAsTouched();
+          });
         },
       });
     } else {
-      this.loginForm.setErrors({ mismatch: true });
       this.loginForm.markAllAsTouched();
     }
   }
