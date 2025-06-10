@@ -1,7 +1,7 @@
 <!-- Wishlist Section -->
-<section class="bg-white rounded-4 shadow-lg p-4 my-4 w-75 mx-auto border border-light">
+<section class="bg-white rounded-4 shadow-lg p-3 p-md-4 my-3 my-md-4 mx-auto border border-light" style="max-width: 1200px; width: 95%;">
   <!-- Wishlist Header -->
-  <div class="d-flex justify-content-between align-items-center mb-4">
+  <div class="d-flex flex-column flex-md-row justify-content-between align-items-center gap-3 mb-4">
     <h1 class="h3 fw-bold text-main mb-0">
       <i class="fa-solid fa-heart me-2"></i>Your Wishlist
     </h1>
@@ -26,18 +26,18 @@
       @for (item of wishlistItems; track item.id) {
         <div class="row align-items-center g-0 border-bottom py-3 hover-bg-light transition-all">
           <!-- Product Image Column -->
-          <div class="col-md-2 px-3">
+          <div class="col-3 col-md-2 px-2 px-md-3">
             <img [src]="item.imageCover" 
                  class="img-fluid rounded-3 border shadow-sm" 
                  [alt]="item.title" 
-                 style="height: 70px; width: 70px; object-fit: cover;"
+                 style="height: 60px; width: 60px; object-fit: cover;"
                  [routerLink]="['/details', item.id]">
           </div>
           
           <!-- Product Info Column -->
-          <div class="col-md-7 px-3">
+          <div class="col-9 col-md-7 px-2 px-md-3">
             <h3 class="h6 fw-bold mb-1 text-truncate">{{item.title}}</h3>
-            <div class="d-flex align-items-center gap-2">
+            <div class="d-flex flex-wrap align-items-center gap-2">
               <p class="text-main fw-medium mb-0">{{item.price | currency:'GBP'}}</p>
               <span class="badge bg-light text-dark">{{item.category.name}}</span>
             </div>
@@ -48,11 +48,11 @@
           </div>
           
           <!-- Action Buttons Column -->
-          <div class="col-md-3 d-flex align-items-center justify-content-end pe-3 gap-2">
+          <div class="col-12 col-md-3 d-flex align-items-center justify-content-end gap-2 mt-3 mt-md-0 px-2 px-md-3">
             <!-- Add to Cart Button -->
-            <button class="btn btn-sm btn-main rounded-pill px-3 py-2" (click)="addToCart(item.id)">
+            <button class="btn btn-sm btn-main rounded-pill px-3 py-2 flex-grow-1 flex-md-grow-0" (click)="addToCart(item.id)">
               <i class="fas fa-shopping-cart me-1"></i>
-              Add to Cart
+              <span class="d-none d-md-inline">Add to Cart</span>
             </button>
             
             <!-- Remove Button -->
@@ -65,15 +65,15 @@
     </div>
 
     <!-- Actions Section -->
-    <div class="d-flex justify-content-between align-items-center">
+    <div class="d-flex flex-column flex-md-row justify-content-between align-items-center gap-3">
       <!-- Clear Wishlist Button -->
-      <button class="btn btn-outline-danger rounded-pill px-4 py-2" (click)="clearWishlist()">
+      <button class="btn btn-outline-danger rounded-pill px-4 py-2 w-100 w-md-auto" (click)="clearWishlist()">
         <i class="fa-solid fa-trash-can me-2"></i>
         Clear Wishlist
       </button>
       
       <!-- Continue Shopping Button -->
-      <button class="btn btn-main btn-lg rounded-pill px-4 py-2" routerLink="/home">
+      <button class="btn btn-main rounded-pill px-4 py-2 w-100 w-md-auto" routerLink="/home">
         <i class="fa-solid fa-shopping-bag me-2"></i>
         Continue Shopping
       </button>

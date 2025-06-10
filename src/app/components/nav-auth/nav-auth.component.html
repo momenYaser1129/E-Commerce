@@ -7,49 +7,44 @@
         </div>
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+        <i class="fas fa-bars text-main"></i>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
-      
+        <ul class="navbar-nav ms-auto align-items-center">
+          <!-- Social Icons -->
+          <li class="nav-item d-none d-lg-block">
+            <div class="d-flex social-icons">
+              <a class="nav-link" href="#"><i class="fa-brands fa-facebook"></i></a>
+              <a class="nav-link" href="#"><i class="fa-brands fa-twitter"></i></a>
+              <a class="nav-link" href="#"><i class="fa-brands fa-instagram"></i></a>
+              <a class="nav-link" href="#"><i class="fa-brands fa-linkedin"></i></a>
+              <a class="nav-link" href="#"><i class="fa-brands fa-youtube"></i></a>
+            </div>
+          </li>
+          
+          <!-- Mobile Social Icons -->
+          <li class="nav-item d-lg-none">
+            <div class="d-flex justify-content-center gap-3 py-2">
+              <a class="nav-link" href="#"><i class="fa-brands fa-facebook"></i></a>
+              <a class="nav-link" href="#"><i class="fa-brands fa-twitter"></i></a>
+              <a class="nav-link" href="#"><i class="fa-brands fa-instagram"></i></a>
+              <a class="nav-link" href="#"><i class="fa-brands fa-linkedin"></i></a>
+              <a class="nav-link" href="#"><i class="fa-brands fa-youtube"></i></a>
+            </div>
+          </li>
 
-        <ul class="navbar-nav ms-auto">
-            <li class="nav-item">
-              <a class="nav-link" >
-                <i class="fa-brands fa-facebook"></i>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" >
-                <i class="fa-brands fa-twitter"></i>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" >
-                <i class="fa-brands fa-instagram"></i>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" >
-                <i class="fa-brands fa-linkedin"></i>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" >
-                <i class="fa-brands fa-youtube"></i>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link cr" routerLinkActive="active-link" routerLink="login"  >
-               Login
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link cr"  routerLinkActive="active-link" routerLink="register" >
-               Register
-              </a>
-            </li>
-            
-          </ul>
+          <!-- Login/Register Buttons -->
+          <li class="nav-item">
+            <a class="nav-link cr" routerLinkActive="active-link" routerLink="login">
+              <i class="fas fa-sign-in-alt me-1"></i>Login
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link cr" routerLinkActive="active-link" routerLink="register">
+              <i class="fas fa-user-plus me-1"></i>Register
+            </a>
+          </li>
+        </ul>
       </div>
     </div>
   </nav>

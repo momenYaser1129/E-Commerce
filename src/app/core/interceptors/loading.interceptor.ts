@@ -8,7 +8,7 @@ export const loadingInterceptor: HttpInterceptorFn = (req, next) => {
   const _NgxSpinnerService = inject(NgxSpinnerService);
 
   // Req => Show loading 
-  if( req.url.includes("products") || req.url.includes("categories")){
+  if( req.url.includes("products") || req.url.includes("categories") || req.url.includes("/cart") || req.url.includes("orders")  || req.url.includes("wishlist")){
     _NgxSpinnerService.show()
   }
 

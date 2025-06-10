@@ -117,10 +117,14 @@
 }
 
 .hover-bg-light {
-  transition: background-color 0.3s ease;
-
+  transition: all 0.3s ease;
+  
   &:hover {
     background-color: #f8f9fa;
+  }
+  
+  @media (max-width: 767.98px) {
+    padding: 1rem 0.5rem !important;
   }
 }
 
@@ -129,8 +133,15 @@
 }
 
 .btn {
+  transition: all 0.3s ease;
+  
   &:hover {
     transform: translateY(-1px);
+  }
+  
+  @media (max-width: 767.98px) {
+    padding: 0.5rem 1rem !important;
+    font-size: 0.875rem;
   }
 }
 
@@ -149,8 +160,58 @@
 img {
   cursor: pointer;
   transition: transform 0.3s ease;
-
+  
   &:hover {
     transform: scale(1.05);
+  }
+  
+  @media (max-width: 767.98px) {
+    height: 50px !important;
+    width: 50px !important;
+  }
+}
+
+// Wishlist container styles
+section {
+  transition: all 0.3s ease;
+  
+  @media (max-width: 767.98px) {
+    border-radius: 0.5rem !important;
+    margin: 1rem 0 !important;
+  }
+}
+
+// Header styles
+.h3 {
+  @media (max-width: 767.98px) {
+    font-size: 1.5rem;
+  }
+}
+
+// Empty wishlist styles
+.empty-wishlist {
+  @media (max-width: 767.98px) {
+    padding: 2rem 1rem !important;
+    
+    .fa-4x {
+      font-size: 3rem;
+    }
+    
+    h3 {
+      font-size: 1.25rem;
+    }
+  }
+}
+
+// Animations
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
   }
 } 

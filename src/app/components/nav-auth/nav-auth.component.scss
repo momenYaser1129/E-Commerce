@@ -1,0 +1,101 @@
+.navbar {
+  padding: 0.5rem 1rem;
+  background-color: #fff !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+  .logo-container {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    i {
+      font-size: 1.5rem;
+    }
+
+    .brand-name {
+      font-size: 1.25rem;
+      font-weight: 600;
+    }
+  }
+
+  .navbar-toggler {
+    border: none;
+    padding: 0.25rem;
+    
+    &:focus {
+      box-shadow: none;
+    }
+  }
+
+  .navbar-collapse {
+    @media (max-width: 991.98px) {
+      background-color: #fff;
+      padding: 1rem;
+      border-radius: 0.5rem;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      margin-top: 0.5rem;
+    }
+  }
+
+  .navbar-nav {
+    .nav-item {
+      .nav-link {
+        padding: 0.5rem 1rem;
+        color: #333;
+        transition: color 0.3s ease;
+
+        &:hover {
+          color: var(--main-color);
+        }
+
+        &.active-link {
+          color: var(--main-color);
+          font-weight: 500;
+        }
+
+        i {
+          font-size: 1.1rem;
+        }
+      }
+
+      // Social icons styling
+      .nav-link:not(.cr) {
+        padding: 0.5rem;
+        
+        i {
+          font-size: 1.2rem;
+        }
+      }
+
+      // Login/Register buttons
+      .cr {
+        padding: 0.5rem 1rem;
+        border-radius: 0.25rem;
+        font-weight: 500;
+        
+        &:hover {
+          background-color: var(--main-color);
+          color: #fff !important;
+        }
+      }
+    }
+  }
+
+  // Mobile optimizations
+  @media (max-width: 991.98px) {
+    .navbar-nav {
+      gap: 0.5rem;
+      
+      .nav-item {
+        .nav-link {
+          padding: 0.75rem 1rem;
+          border-radius: 0.25rem;
+          
+          &:hover {
+            background-color: rgba(var(--main-color-rgb), 0.1);
+          }
+        }
+      }
+    }
+  }
+}

@@ -3,7 +3,7 @@
     <div class="row g-4">
       <!-- App Download Section -->
       <div class="col-lg-6">
-        <div class="app-download p-5 bg-white rounded-4">
+        <div class="app-download p-4 p-md-5 bg-white rounded-4">
           <div class="d-flex align-items-center mb-4">
             <div class="app-icon me-3">
               <i class="fas fa-shopping-basket fa-2x text-main"></i>
@@ -15,13 +15,21 @@
           </div>
           
           <div class="input-group mb-4">
-            <input type="email" class="form-control" placeholder="Enter your email" />
-            <button class="btn-main">
-              <i class="fas fa-paper-plane me-2"></i>Get App
+            <span class="input-group-text bg-white border-end-0">
+              <i class="fas fa-envelope text-main"></i>
+            </span>
+            <input 
+              type="email" 
+              class="form-control border-start-0" 
+              placeholder="Enter your email" 
+            />
+            <button class="btn-main px-4">
+              <i class="fas fa-paper-plane me-2"></i>
+              <span class="d-none d-md-inline">Get App</span>
             </button>
           </div>
 
-          <div class="d-flex gap-3">
+          <div class="d-flex flex-wrap gap-3">
             <a href="#" class="app-store-link">
               <img src="./assets/images/get-google-play.png" width="140px" alt="Google Play" class="store-icon" />
             </a>
@@ -34,7 +42,7 @@
 
       <!-- Payment Partners Section -->
       <div class="col-lg-6">
-        <div class="payment-partners p-5 bg-white rounded-4">
+        <div class="payment-partners p-4 p-md-5 bg-white rounded-4">
           <h3 class="h5 fw-bold mb-4">Secure Payment Methods</h3>
           
           <div class="payment-methods mb-4">
