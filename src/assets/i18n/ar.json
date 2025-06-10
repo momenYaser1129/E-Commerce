@@ -76,5 +76,15 @@
             "resetPassword": "إعادة تعيين كلمة المرور",
             "resettingPassword": "جاري إعادة تعيين كلمة المرور..."
         }
+    },
+    "footer": {
+        "appTitle": "تطبيق ماركت بولس",
+        "appSubtitle": "احصل على أفضل تجربة تسوق",
+        "emailPlaceholder": "أدخل بريدك الإلكتروني",
+        "getApp": "احصل على التطبيق",
+        "paymentMethods": "طرق الدفع الآمنة",
+        "fastDelivery": "توصيل سريع",
+        "deliveryTime": "احصل على طلباتك خلال 24 ساعة",
+        "copyright": "© 2025 مومن ياسر. جميع الحقوق محفوظة."
     }
 }

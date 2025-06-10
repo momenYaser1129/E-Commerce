@@ -11,7 +11,7 @@ import { AuthService } from '../../core/services/auth.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { NgClass } from '@angular/common';
 import { Router } from '@angular/router';
-import { TranslateModule } from '@ngx-translate/core';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-register',
@@ -23,8 +23,8 @@ import { TranslateModule } from '@ngx-translate/core';
 export class RegisterComponent {
   private readonly _AuthService = inject(AuthService);
   private readonly _FormBuilder = inject(FormBuilder);
-  private readonly _Router = inject(Router)
-
+  private readonly _Router = inject(Router);
+  readonly _TranslateService = inject(TranslateService);
 
   msgError: string = '';
   isLoading: boolean = false;

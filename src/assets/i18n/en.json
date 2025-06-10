@@ -76,5 +76,15 @@
             "resetPassword": "Reset Password",
             "resettingPassword": "Resetting Password..."
         }
+    },
+    "footer": {
+        "appTitle": "MarketPulse App",
+        "appSubtitle": "Get the best shopping experience",
+        "emailPlaceholder": "Enter your email",
+        "getApp": "Get App",
+        "paymentMethods": "Secure Payment Methods",
+        "fastDelivery": "Fast Delivery",
+        "deliveryTime": "Get your orders delivered within 24 hours",
+        "copyright": "© 2025 Momen Yaser. All rights reserved."
     }
 }
