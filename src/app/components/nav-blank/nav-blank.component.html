@@ -99,6 +99,14 @@
         </li>
         
         <li class="nav-item ms- d-flex align-items-center gap-2">
+          <div class="user-info d-flex align-items-center">
+            <div class="user-avatar me-2">
+              <i class="fas fa-user-circle fa-lg text-main"></i>
+            </div>
+            <span class="nav-link text-main fw-medium">
+              {{userName}}
+            </span>
+          </div>
           <a class="nav-link cr btn-signout" (click)="_AuthService.logOut()" (click)="signEnLang()">
             <i class="fas fa-sign-out-alt me-1 signOut"></i>
             {{ 'navbar.signout' | translate }}

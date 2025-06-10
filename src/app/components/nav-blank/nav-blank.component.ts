@@ -20,7 +20,7 @@ export class NavBlankComponent implements OnInit {
    private readonly _CartService = inject(CartService)
 
    readonly _TranslateService = inject(TranslateService)
-
+   userName: string = '';
    showCartCount : Signal<number> = computed(()=> this._CartService.cartCount())
 
   // signOut(): void {
@@ -28,6 +28,8 @@ export class NavBlankComponent implements OnInit {
   // }
   
   ngOnInit(): void {
+    this._AuthService.saveUserData();
+    this.userName = this._AuthService.userData.name;
     // Get All products CArt to get cartCount
     this._CartService.getProductCart().subscribe({
       next:(res)=>{

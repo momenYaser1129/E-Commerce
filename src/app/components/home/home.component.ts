@@ -38,6 +38,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   categoryList: ICategory[] = [];
   wishlistStatus: { [key: string]: boolean } = {};
   dataOfSearch: string = '';
+  userName: string = '';
 
   getAllProductsSub!: Subscription;
 
@@ -83,7 +84,7 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.loadCategories();
-    this.loadProducts();
+    this.loadProducts(); 
   }
 
   private loadCategories(): void {
