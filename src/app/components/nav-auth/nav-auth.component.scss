@@ -3,6 +3,32 @@
   background-color: #fff !important;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 
+  &[dir="rtl"] {
+    .navbar-nav {
+      .nav-item {
+        .nav-link {
+          i {
+            margin-left: 0.5rem;
+            margin-right: 0;
+          }
+        }
+      }
+    }
+
+    .dropdown-menu {
+      text-align: right;
+    }
+
+    .social-icons {
+      .nav-link {
+        i {
+          margin-left: 0;
+          margin-right: 0;
+        }
+      }
+    }
+  }
+
   .logo-container {
     display: flex;
     align-items: center;
@@ -96,6 +122,18 @@
           }
         }
       }
+    }
+  }
+}
+
+.social-icons {
+  .nav-link {
+    padding: 0.5rem;
+    color: #666;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: var(--main-color);
     }
   }
 }

@@ -13,5 +13,53 @@
         "searchPlaceholder": "ماذا تبحث عن اليوم؟",
         "popularProducts": "المنتجات الشائعة",
         "addToCart": "أضف إلى السلة"
+    },
+    "auth": {
+        "login": {
+            "title": "مرحباً بعودتك!",
+            "subtitle": "يرجى تسجيل الدخول إلى حسابك",
+            "email": "البريد الإلكتروني",
+            "emailPlaceholder": "أدخل بريدك الإلكتروني",
+            "password": "كلمة المرور",
+            "passwordPlaceholder": "أدخل كلمة المرور",
+            "forgotPassword": "نسيت كلمة المرور؟",
+            "loginButton": "تسجيل الدخول",
+            "loggingIn": "جاري تسجيل الدخول...",
+            "success": "تم تسجيل الدخول بنجاح!",
+            "errors": {
+                "emailRequired": "البريد الإلكتروني مطلوب",
+                "emailInvalid": "يرجى إدخال بريد إلكتروني صحيح",
+                "passwordRequired": "كلمة المرور مطلوبة"
+            }
+        },
+        "register": {
+            "title": "إنشاء حساب",
+            "subtitle": "انضم إلى مجتمعنا اليوم",
+            "name": "الاسم الكامل",
+            "namePlaceholder": "أدخل اسمك الكامل",
+            "email": "البريد الإلكتروني",
+            "emailPlaceholder": "أدخل بريدك الإلكتروني",
+            "password": "كلمة المرور",
+            "passwordPlaceholder": "أنشئ كلمة مرور",
+            "confirmPassword": "تأكيد كلمة المرور",
+            "confirmPasswordPlaceholder": "تأكيد كلمة المرور",
+            "phone": "رقم الهاتف",
+            "phonePlaceholder": "أدخل رقم هاتفك",
+            "registerButton": "تسجيل",
+            "creatingAccount": "جاري إنشاء الحساب...",
+            "success": "تم التسجيل بنجاح!",
+            "errors": {
+                "nameRequired": "الاسم مطلوب",
+                "nameMinLength": "يجب أن يكون الاسم 3 أحرف على الأقل",
+                "nameMaxLength": "يجب أن يكون الاسم أقل من 20 حرفاً",
+                "emailRequired": "البريد الإلكتروني مطلوب",
+                "emailInvalid": "يرجى إدخال بريد إلكتروني صحيح",
+                "passwordRequired": "كلمة المرور مطلوبة",
+                "passwordPattern": "يجب أن تكون كلمة المرور 8 أحرف على الأقل وتحتوي على أحرف كبيرة وصغيرة وأرقام",
+                "passwordMismatch": "تأكيد كلمة المرور غير صحيح",
+                "phoneRequired": "رقم الهاتف مطلوب",
+                "phoneInvalid": "يرجى إدخال رقم هاتف مصري صحيح"
+            }
+        }
     }
 }

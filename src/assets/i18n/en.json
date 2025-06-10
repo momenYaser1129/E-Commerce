@@ -13,5 +13,53 @@
         "searchPlaceholder": "What are you looking for today?",
         "popularProducts": "Popular Products",
         "addToCart": "Add to Cart"
+    },
+    "auth": {
+        "login": {
+            "title": "Welcome Back!",
+            "subtitle": "Please login to your account",
+            "email": "Email Address",
+            "emailPlaceholder": "Enter your email",
+            "password": "Password",
+            "passwordPlaceholder": "Enter your password",
+            "forgotPassword": "Forgot Password?",
+            "loginButton": "Login",
+            "loggingIn": "Logging in...",
+            "success": "Login successful!",
+            "errors": {
+                "emailRequired": "Email is required",
+                "emailInvalid": "Please enter a valid email",
+                "passwordRequired": "Password is required"
+            }
+        },
+        "register": {
+            "title": "Create Account",
+            "subtitle": "Join our community today",
+            "name": "Full Name",
+            "namePlaceholder": "Enter your full name",
+            "email": "Email Address",
+            "emailPlaceholder": "Enter your email",
+            "password": "Password",
+            "passwordPlaceholder": "Create a password",
+            "confirmPassword": "Confirm Password",
+            "confirmPasswordPlaceholder": "Confirm your password",
+            "phone": "Phone Number",
+            "phonePlaceholder": "Enter your phone number",
+            "registerButton": "Register",
+            "creatingAccount": "Creating Account...",
+            "success": "Registration successful!",
+            "errors": {
+                "nameRequired": "Name is required",
+                "nameMinLength": "Name must be at least 3 characters",
+                "nameMaxLength": "Name must be less than 20 characters",
+                "emailRequired": "Email is required",
+                "emailInvalid": "Please enter a valid email",
+                "passwordRequired": "Password is required",
+                "passwordPattern": "Password must be at least 8 characters and contain uppercase, lowercase and numbers",
+                "passwordMismatch": "Password confirmation is incorrect",
+                "phoneRequired": "Phone number is required",
+                "phoneInvalid": "Please enter a valid Egyptian phone number"
+            }
+        }
     }
 }
