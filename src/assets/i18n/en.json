@@ -60,6 +60,21 @@
                 "phoneRequired": "Phone number is required",
                 "phoneInvalid": "Please enter a valid Egyptian phone number"
             }
+        },
+        "forgotPassword": {
+            "title": "Forgot Password",
+            "email": "Email",
+            "emailPlaceholder": "Enter your email",
+            "resetCode": "Reset Code",
+            "resetCodePlaceholder": "Enter the 6-digit code",
+            "newPassword": "New Password",
+            "newPasswordPlaceholder": "Enter your new password",
+            "verifyEmail": "Verify Email",
+            "verifyingEmail": "Verifying Email...",
+            "verifyCode": "Verify Code",
+            "verifyingCode": "Verifying Code...",
+            "resetPassword": "Reset Password",
+            "resettingPassword": "Resetting Password..."
         }
     }
 }

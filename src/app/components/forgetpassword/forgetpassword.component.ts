@@ -8,11 +8,12 @@ import {
 import { AuthService } from '../../core/services/auth.service';
 import { Router } from '@angular/router';
 import { NgClass } from '@angular/common';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-forgetpassword',
   standalone: true,
-  imports: [ReactiveFormsModule, NgClass],
+  imports: [ReactiveFormsModule, NgClass, TranslateModule],
   templateUrl: './forgetpassword.component.html',
   styleUrls: ['./forgetpassword.component.scss'], // Corrected to styleUrls
 })
@@ -26,6 +27,7 @@ export class ForgetpasswordComponent {
   private readonly _AuthService = inject(AuthService);
   private readonly _FormBuilder = inject(FormBuilder);
   private readonly _Router = inject(Router);
+  readonly _TranslateService = inject(TranslateService);
 
   verifyEmail: FormGroup = this._FormBuilder.group({
     email: [null, [Validators.required, Validators.email]],
