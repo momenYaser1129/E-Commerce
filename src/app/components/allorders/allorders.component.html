@@ -1,0 +1,41 @@
+<div class="orders-container">
+  <h2>Orders</h2>
+  
+  <div class="orders-grid">
+    @for (order of orders; track order.id) {
+    <div class="order-card">
+      <div class="order-header">
+        <span class="order-id">#{{order.id}}</span>
+        <span class="order-date">{{order.createdAt | date:'short'}}</span>
+      </div>
+
+      <div class="order-body">
+        <div class="shipping-info">
+          <h6 class="section-title">Address</h6>
+          <p>{{order.shippingAddress.details}}, {{order.shippingAddress.city}}</p>
+          <p>{{order.shippingAddress.phone}}</p>
+        </div>
+        
+        <div class="order-items">
+          <h6 class="section-title">Items</h6>
+          <div class="items-list">
+            @for (item of order.cartItems; track item._id) {
+            <div class="item">
+              <div class="item-details">
+                <span class="item-title">{{item.product.title}}</span>
+                <span class="item-price">×{{item.count}} - ${{item.price}}</span>
+              </div>
+            </div>
+            }
+          </div>
+        </div>
+
+        <div class="order-footer">
+          <span class="status-paid">Paid</span>
+          <span class="order-total">${{order.totalOrderPrice}}</span>
+        </div>
+      </div>
+    </div>
+    }
+  </div>
+</div>

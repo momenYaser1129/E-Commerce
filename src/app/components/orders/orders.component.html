@@ -1,0 +1,110 @@
+<section
+  class="bg-main-light rounded-4 shadow p-3 mx-auto my-3"
+  style="max-width: 500px"
+>
+  <h1 class="text-center fs-4 mb-3 text-main">Shipping Address</h1>
+
+  <form [formGroup]="orders" (ngSubmit)="ordersSubmit()">
+    <!-- Details field with validation -->
+    <div class="mb-2">
+      <label for="details" class="form-label small mb-1 fw-medium">Details</label>
+      <textarea
+        id="details"
+        formControlName="details"
+        class="form-control form-control-sm"
+        rows="2"
+        placeholder="Enter your address details"
+        [ngClass]="{
+          'is-valid': !orders.get('details')?.errors && 
+            (orders.get('details')?.dirty || orders.get('details')?.touched),
+          'is-invalid': orders.get('details')?.errors && 
+            (orders.get('details')?.dirty || orders.get('details')?.touched)
+        }"
+      ></textarea>
+      @if(orders.get('details')?.errors && 
+          (orders.get('details')?.touched || orders.get('details')?.dirty)) {
+        <div class="alert alert-danger w-75 py-1 px-2 mt-1">
+          @if(orders.get('details')?.getError('required')) {
+            <p class="m-0">Address details are required</p>
+          } @else if(orders.get('details')?.getError('minlength')) {
+            <span class="m-0 fs-6">Address must be at least 10 characters</span>
+          }
+        </div>
+      }
+    </div>
+
+    <!-- Phone field with validation -->
+    <div class="mb-2">
+      <label for="phone" class="form-label small mb-1 fw-medium">Phone</label>
+      <input
+        id="phone"
+        formControlName="phone"
+        type="tel"
+        class="form-control form-control-sm"
+        placeholder="Your contact number"
+        [ngClass]="{
+          'is-valid': !orders.get('phone')?.errors &&
+            (orders.get('phone')?.dirty || orders.get('phone')?.touched),
+          'is-invalid': orders.get('phone')?.errors &&
+            (orders.get('phone')?.dirty || orders.get('phone')?.touched)
+        }"
+      />
+      @if(orders.get('phone')?.errors &&
+          (orders.get('phone')?.touched || orders.get('phone')?.dirty)) {
+        <div class="alert alert-danger w-75 py-1 px-2 mt-1">
+          @if(orders.get('phone')?.getError('required')) {
+            <p class="m-0">Required</p>
+          } @else if(orders.get('phone')?.getError('pattern')) {
+            <span class="m-0 fs-6">Accept only Egypt phone numbers</span>
+          }
+        </div>
+      }
+    </div>
+
+    <!-- City field with validation -->
+    <div class="mb-3">
+      <label for="city" class="form-label small mb-1 fw-medium">City</label>
+      <input
+        id="city"
+        formControlName="city"
+        type="text"
+        class="form-control form-control-sm"
+        placeholder="Your city"
+        [ngClass]="{
+          'is-valid': !orders.get('city')?.errors &&
+            (orders.get('city')?.dirty || orders.get('city')?.touched),
+          'is-invalid': orders.get('city')?.errors &&
+            (orders.get('city')?.dirty || orders.get('city')?.touched)
+        }"
+      />
+      @if(orders.get('city')?.errors &&
+          (orders.get('city')?.touched || orders.get('city')?.dirty)) {
+        <div class="alert alert-danger w-75 py-1 px-2 mt-1">
+          @if(orders.get('city')?.getError('required')) {
+            <p class="m-0">City is required</p>
+          } @else if(orders.get('city')?.getError('pattern')) {
+            <span class="m-0 fs-6">City name should contain only letters</span>
+          }
+        </div>
+      }
+    </div>
+
+    <div class="d-flex gap-2 mt-3">
+      <a routerLink="/cart" class="btn btn-outline-secondary flex-grow-1 py-2">
+        <i class="fa-solid fa-arrow-left me-1"></i> Back to Cart
+      </a>
+      <button 
+        class="btn btn-main flex-grow-1 py-2" 
+        type="submit"
+        [disabled]="orders.invalid"
+      >
+      @if(isLoading){
+        <span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
+        Checking out...
+      } @else {
+        Check Out
+      }
+      </button>
+    </div>
+  </form>
+</section>

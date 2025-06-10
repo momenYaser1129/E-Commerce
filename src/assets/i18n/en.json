@@ -1,0 +1,17 @@
+{
+    "navbar": {
+        "home": "Home",
+        "products": "Products",
+        "categories": "Categories",
+        "brands": "Brands",
+        "signout": "SignOut",
+        "lang": "Lang",
+        "wishlist": "Wishlist"
+    },
+    "home": {
+        "shopByCategory": "Shop by Category",
+        "searchPlaceholder": "What are you looking for today?",
+        "popularProducts": "Popular Products",
+        "addToCart": "Add to Cart"
+    }
+}

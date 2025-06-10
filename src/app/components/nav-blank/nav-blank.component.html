@@ -1,0 +1,110 @@
+<nav class="navbar navbar-expand-lg bg-white shadow-sm sticky-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" routerLink="/">
+      <div class="logo-container">
+        <i class="fas fa-store text-main"></i>
+        <span class="brand-name">Market<span class="text-main">Pulse</span></span>
+      </div>
+    </a>
+
+    <div class="d-flex order-lg-last">
+      <!-- Cart icon visible outside collapsed menu on mobile -->
+      <div class="d-lg-none me-3">
+        <a class="nav-link position-relative px-2 cart-icon" routerLink="cart">
+          <i class="fas fa-shopping-cart fa-lg"></i>
+          <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-main">
+            {{showCartCount()}}
+          </span>
+        </a>
+      </div>
+      <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <i class="fas fa-bars text-main"></i>
+      </button>
+    </div>
+    
+    <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" routerLinkActive="active-link" routerLink="home">
+            <i class="fas fa-home me-1"></i>{{ "navbar.home" | translate }}
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLinkActive="active-link" routerLink="products">
+            <i class="fas fa-box me-1"></i>{{ "navbar.products" | translate }}
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLinkActive="active-link" routerLink="categories">
+            <i class="fas fa-list me-1"></i>{{ "navbar.categories" | translate }}
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLinkActive="active-link" routerLink="wishlist">
+            <i class="fas fa-heart me-1"></i>{{ "navbar.wishlist" | translate }}
+          </a>
+        </li>
+      </ul>
+
+      <ul class="navbar-nav align-items-center">
+        <!-- Language Selector -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" id="languageDropdown" role="button" data-bs-toggle="dropdown">
+            <i class="fas fa-globe me-1"></i>{{"navbar.lang" | translate}}
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end shadow-sm border-0">
+            <li [class.bg-main]="_TranslateService.currentLang== 'en'" (click)="switchLanguage('en')" class="cr">
+              <a class="dropdown-item">
+                <i class="fas fa-flag me-2"></i>English
+              </a>
+            </li>
+            <li [class.bg-main]="_TranslateService.currentLang== 'ar'" (click)="switchLanguage('ar')" class="cr">
+              <a class="dropdown-item">
+                <i class="fas fa-flag me-2"></i>العربية
+              </a>
+            </li>
+          </ul>
+        </li>
+        
+        <!-- Cart icon with proper spacing -->
+        <li class="nav-item d-none d-lg-block mx-3">
+          <a class="nav-link position-relative cart-icon p-2" routerLinkActive="active-link" routerLink="cart">
+            <i class="fa-solid fa-cart-shopping me-1" style="color: #060505;"></i>
+            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-main">
+              {{showCartCount()}}
+            </span>
+          </a>
+        </li>
+        
+        <!-- Social icons wrapper with proper spacing -->
+        <li class="nav-item d-none d-lg-flex me-2">
+          <div class="d-flex social-icons">
+            <a class="nav-link p-2" href="#"><i class="fab fa-facebook"></i></a>
+            <a class="nav-link p-2" href="#"><i class="fab fa-twitter"></i></a>
+            <a class="nav-link p-2" href="#"><i class="fab fa-instagram"></i></a>
+            <a class="nav-link p-2" href="#"><i class="fab fa-linkedin"></i></a>
+            <a class="nav-link p-2" href="#"><i class="fab fa-youtube"></i></a>
+          </div>
+        </li>
+        
+        <!-- Mobile social icons (horizontal scroll) -->
+        <li class="nav-item d-lg-none">
+          <div class="social-icons-mobile d-flex overflow-auto py-2">
+            <a class="nav-link p-2 me-2" href="#"><i class="fab fa-facebook"></i></a>
+            <a class="nav-link p-2 me-2" href="#"><i class="fab fa-twitter"></i></a>
+            <a class="nav-link p-2 me-2" href="#"><i class="fab fa-instagram"></i></a>
+            <a class="nav-link p-2 me-2" href="#"><i class="fab fa-linkedin"></i></a>
+            <a class="nav-link p-2 me-2" href="#"><i class="fab fa-youtube"></i></a>
+          </div>
+        </li>
+        
+        <li class="nav-item ms- d-flex align-items-center gap-2">
+          <a class="nav-link cr btn-signout" (click)="_AuthService.logOut()" (click)="signEnLang()">
+            <i class="fas fa-sign-out-alt me-1 signOut"></i>
+            {{ 'navbar.signout' | translate }}
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

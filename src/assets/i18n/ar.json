@@ -1,0 +1,17 @@
+{
+    "navbar": {
+        "home": "الرئيسيه",
+        "products": "المنتجات",
+        "categories": "الاقسام",
+        "brands": "العلامات التجاريه",
+        "signout": "تسجيل الخروج",
+        "lang": "غ",
+        "wishlist": "المفضلة"
+    },
+    "home": {
+        "shopByCategory": "تسوق حسب الفئة",
+        "searchPlaceholder": "ماذا تبحث عن اليوم؟",
+        "popularProducts": "المنتجات الشائعة",
+        "addToCart": "أضف إلى السلة"
+    }
+}

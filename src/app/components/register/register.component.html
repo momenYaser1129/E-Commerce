@@ -1,0 +1,201 @@
+<section class="bg-main-light shadow-lg py-4 px-4 my-5 rounded-4 max-width-600 mx-auto">
+  <div class="text-center mb-4">
+    <h1 class="h2 text-main fw-bold">Create Account</h1>
+    <p class="text-muted">Join our community today</p>
+  </div>
+
+  <form [formGroup]="registerForm" (ngSubmit)="registerSubmit()" class="needs-validation">
+    <div class="form-group mb-4">
+      <label for="name" class="form-label fw-medium">Full Name</label>
+      <div class="input-group">
+        <span class="input-group-text bg-white border-end-0">
+          <i class="fas fa-user text-main"></i>
+        </span>
+        <input
+          [ngClass]="{
+            'is-valid': !registerForm.get('name')?.errors &&
+                (registerForm.get('name')?.dirty ||
+                registerForm.get('name')?.touched),
+            'is-invalid': registerForm.get('name')?.errors &&
+                (registerForm.get('name')?.dirty ||
+                registerForm.get('name')?.touched)
+          }"
+          formControlName="name"
+          id="name"
+          type="text"
+          class="form-control border-start-0"
+          placeholder="Enter your full name"
+        />
+      </div>
+      @if(registerForm.get('name')?.errors &&(
+      registerForm.get('name')?.touched || registerForm.get('name')?.dirty)){
+      <div class="alert alert-danger py-2 px-3 mt-2">
+        @if(registerForm.get('name')?.getError('required')) {
+        <p class="m-0"><i class="fas fa-exclamation-circle me-2"></i>Name is required</p>
+        } @else if(registerForm.get('name')?.getError('minlength')) {
+        <p class="m-0"><i class="fas fa-exclamation-circle me-2"></i>Name must be at least 3 characters</p>
+        } @else if(registerForm.get('name')?.getError('maxlength')) {
+        <p class="m-0"><i class="fas fa-exclamation-circle me-2"></i>Name must be less than 20 characters</p>
+        }
+      </div>
+      }
+    </div>
+
+    <div class="form-group mb-4">
+      <label for="email" class="form-label fw-medium">Email Address</label>
+      <div class="input-group">
+        <span class="input-group-text bg-white border-end-0">
+          <i class="fas fa-envelope text-main"></i>
+        </span>
+        <input
+          [ngClass]="{
+            'is-valid': !registerForm.get('email')?.errors &&
+                (registerForm.get('email')?.dirty ||
+                registerForm.get('email')?.touched),
+            'is-invalid': registerForm.get('email')?.errors &&
+                (registerForm.get('email')?.dirty ||
+                registerForm.get('email')?.touched)
+          }"
+          formControlName="email"
+          id="email"
+          type="email"
+          class="form-control border-start-0"
+          placeholder="Enter your email"
+        />
+      </div>
+      @if(registerForm.get('email')?.errors &&(
+      registerForm.get('email')?.touched || registerForm.get('email')?.dirty)){
+      <div class="alert alert-danger py-2 px-3 mt-2">
+        @if(registerForm.get('email')?.getError('required')) {
+        <p class="m-0"><i class="fas fa-exclamation-circle me-2"></i>Email is required</p>
+        } @else if(registerForm.get('email')?.getError('email')) {
+        <p class="m-0"><i class="fas fa-exclamation-circle me-2"></i>Please enter a valid email</p>
+        }
+      </div>
+      }
+    </div>
+
+    <div class="form-group mb-4">
+      <label for="password" class="form-label fw-medium">Password</label>
+      <div class="input-group">
+        <span class="input-group-text bg-white border-end-0">
+          <i class="fas fa-lock text-main"></i>
+        </span>
+        <input
+          [ngClass]="{
+            'is-valid': !registerForm.get('password')?.errors &&
+                (registerForm.get('password')?.dirty ||
+                registerForm.get('password')?.touched),
+            'is-invalid': registerForm.get('password')?.errors &&
+                (registerForm.get('password')?.dirty ||
+                registerForm.get('password')?.touched)
+          }"
+          formControlName="password"
+          id="password"
+          type="password"
+          class="form-control border-start-0"
+          placeholder="Create a password"
+        />
+      </div>
+      @if(registerForm.get('password')?.errors &&(
+      registerForm.get('password')?.touched || registerForm.get('password')?.dirty)){
+      <div class="alert alert-danger py-2 px-3 mt-2">
+        @if(registerForm.get('password')?.getError('required')) {
+        <p class="m-0"><i class="fas fa-exclamation-circle me-2"></i>Password is required</p>
+        } @else if(registerForm.get('password')?.getError('pattern')) {
+        <p class="m-0"><i class="fas fa-exclamation-circle me-2"></i>Password must be at least 8 characters and contain uppercase, lowercase and numbers</p>
+        }
+      </div>
+      }
+    </div>
+
+    <div class="form-group mb-4">
+      <label for="rePassword" class="form-label fw-medium">Confirm Password</label>
+      <div class="input-group">
+        <span class="input-group-text bg-white border-end-0">
+          <i class="fas fa-lock text-main"></i>
+        </span>
+        <input
+          [ngClass]="{
+            'is-valid': !registerForm.getError('mismatch') &&
+                (registerForm.get('rePassword')?.dirty ||
+                registerForm.get('rePassword')?.touched),
+            'is-invalid': registerForm.getError('mismatch') &&
+                (registerForm.get('rePassword')?.dirty ||
+                registerForm.get('rePassword')?.touched)
+          }"
+          formControlName="rePassword"
+          id="rePassword"
+          type="password"
+          class="form-control border-start-0"
+          placeholder="Confirm your password"
+        />
+      </div>
+      @if(registerForm.getError('mismatch') &&(
+      registerForm.get('rePassword')?.touched || registerForm.get('rePassword')?.dirty)){
+      <div class="alert alert-danger py-2 px-3 mt-2">
+        <p class="m-0"><i class="fas fa-exclamation-circle me-2"></i>Password confirmation is incorrect</p>
+      </div>
+      }
+    </div>
+
+    <div class="form-group mb-4">
+      <label for="phone" class="form-label fw-medium">Phone Number</label>
+      <div class="input-group">
+        <span class="input-group-text bg-white border-end-0">
+          <i class="fas fa-phone text-main"></i>
+        </span>
+        <input
+          [ngClass]="{
+            'is-valid': !registerForm.get('phone')?.errors &&
+                (registerForm.get('phone')?.dirty ||
+                registerForm.get('phone')?.touched),
+            'is-invalid': registerForm.get('phone')?.errors &&
+                (registerForm.get('phone')?.dirty ||
+                registerForm.get('phone')?.touched)
+          }"
+          formControlName="phone"
+          id="phone"
+          type="tel"
+          class="form-control border-start-0"
+          placeholder="Enter your phone number"
+        />
+      </div>
+      @if(registerForm.get('phone')?.errors &&(
+      registerForm.get('phone')?.touched || registerForm.get('phone')?.dirty)){
+      <div class="alert alert-danger py-2 px-3 mt-2">
+        @if(registerForm.get('phone')?.getError('required')) {
+        <p class="m-0"><i class="fas fa-exclamation-circle me-2"></i>Phone number is required</p>
+        } @else if(registerForm.get('phone')?.getError('pattern')) {
+        <p class="m-0"><i class="fas fa-exclamation-circle me-2"></i>Please enter a valid Egyptian phone number</p>
+        }
+      </div>
+      }
+    </div>
+
+    <button
+      [disabled]="isLoading"
+      type="submit"
+      class="btn-main w-100 py-3"
+    >
+      @if(isLoading) {
+        <span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
+        Creating Account...
+      } @else {
+        <i class="fas fa-user-plus me-2"></i>Register
+      }
+    </button>
+
+    @if(msgError){
+    <div class="alert alert-danger mt-3">
+      <i class="fas fa-exclamation-circle me-2"></i>{{ msgError }}
+    </div>
+    }
+
+    @if(msgSuccess) {
+    <div class="alert alert-success mt-3">
+      <i class="fas fa-check-circle me-2"></i>Registration successful!
+    </div>
+    }
+  </form>
+</section>

@@ -1,0 +1,119 @@
+.product-card {
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  transition: var(--transition);
+  box-shadow: var(--shadow);
+  height: 100%;
+  
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
+    
+    .product-actions {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    .product-image img {
+      transform: scale(1.1);
+    }
+  }
+}
+
+.product-image {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 1;
+  
+  img {
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition);
+  }
+}
+
+.product-actions {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: var(--transition);
+  
+  .btn-action {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background: white;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--dark-color);
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    
+    &:hover {
+      background: var(--main-color);
+      color: white;
+      transform: scale(1.1);
+    }
+  }
+}
+
+.discount-badge {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  background: var(--main-color);
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  box-shadow: var(--shadow);
+}
+
+.product-content {
+  .category {
+    .badge {
+      font-weight: 500;
+      padding: 0.5rem 0.75rem;
+      border-radius: 8px;
+      background: rgba(0, 0, 0, 0.05);
+    }
+  }
+  
+  .product-title {
+    a {
+      color: var(--dark-color);
+      text-decoration: none;
+      transition: var(--transition);
+      
+      &:hover {
+        color: var(--main-color);
+      }
+    }
+  }
+  
+  .product-rating {
+    i {
+      color: var(--rating-color);
+    }
+  }
+  
+  .product-price {
+    .price-before {
+      font-size: 0.875rem;
+    }
+    
+    .price-after {
+      color: var(--main-color);
+      font-size: 1.1rem;
+    }
+  }
+} 

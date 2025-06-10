@@ -1,0 +1,32 @@
+<!-- Categories -->
+<section class="categories-section py-5">
+  <div class="container">
+    <div class="row mb-5">
+      <div class="col-12 text-center">
+        <h2 class="section-title">Explore Categories</h2>
+        <div class="title-underline"></div>
+        <p class="section-subtitle mt-3">Discover our wide range of products</p>
+      </div>
+    </div>
+
+    <div class="row g-4">
+      @for (cat of categoryList; track cat._id) {
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+          <div class="category-card">
+            <div class="category-image">
+              <img
+                [src]="cat.image"
+                [alt]="cat.name"
+                class="img-fluid"
+              />
+              <div class="category-overlay">
+                <h3 class="category-name">{{ cat.name }}</h3>
+              </div>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+  

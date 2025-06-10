@@ -1,0 +1,210 @@
+/* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css2?family=Encode+Sans+Expanded:wght@300;400;500;600;700&display=swap");
+@import 'ngx-toastr/toastr';
+
+@import 'ngx-owl-carousel-o/lib/styles/scss/owl.carousel';
+@import 'ngx-owl-carousel-o/lib/styles/scss/owl.theme.default';
+
+:root {
+  --main-color: #ff6b00;
+  --main-color-dark: #cc5500;
+  --main-color-light: #ff944d;
+  --light-color: #f8f9fa;
+  --dark-color: #212529;
+  --gradient-primary: linear-gradient(135deg, var(--main-color) 0%, var(--main-color-dark) 100%);
+  --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  --shadow-hover: 0 8px 30px rgba(0, 0, 0, 0.12);
+  --font-family: "Encode Sans Expanded", sans-serif;
+  --rating-color: #ffc908;
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+body {
+  font-family: var(--font-family) !important;
+  background-color: #f8f9fa;
+}
+
+.nav-link {
+  transition: var(--transition) !important;
+  position: relative;
+  font-weight: 500;
+  
+  &:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background: var(--gradient-primary);
+    transition: var(--transition);
+  }
+  
+  &:hover:after {
+    width: 100%;
+  }
+}
+
+.active-link {
+  background: var(--gradient-primary) !important;
+  color: var(--light-color) !important;
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+}
+
+.rating-color {
+  color: var(--rating-color);
+}
+
+.cr {
+  cursor: pointer;
+}
+
+a,
+a:hover {
+  color: var(--dark-color);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.product {
+  border-radius: 16px;
+  border: none;
+  transition: var(--transition);
+  overflow: hidden;
+  background: white;
+  box-shadow: var(--shadow);
+  
+  &:hover {
+    box-shadow: var(--shadow-hover);
+    transform: translateY(-5px);
+  }
+}
+
+.font-sm {
+  font-size: 12px;
+}
+
+.text-main {
+  color: var(--main-color);
+}
+
+.bg-main {
+  background: var(--gradient-primary) !important;
+}
+
+.bg-main-light {
+  background-color: var(--light-color) !important;
+}
+
+.btn-main {
+  background: var(--gradient-primary);
+  padding: 12px 28px;
+  border: none;
+  border-radius:0 0 12px 12px;
+  color: #fff;
+  cursor: pointer;
+  transition: var(--transition);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: var(--shadow);
+  
+  &:disabled {
+    cursor: not-allowed;
+    background: #ccc;
+    box-shadow: none;
+  }
+  
+  &:disabled:hover {
+    transform: none;
+    box-shadow: none;
+  }
+  
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-hover);
+  }
+}
+
+.form-control {
+  border-radius: 12px;
+  padding: 14px;
+  border: 2px solid #eee;
+  transition: var(--transition);
+  font-size: 15px;
+  
+  &:focus {
+    border-color: var(--main-color);
+    box-shadow: 0 0 0 0.2rem rgba(255, 107, 0, 0.15);
+  }
+}
+
+.card {
+  border-radius: 16px;
+  overflow: hidden;
+  transition: var(--transition);
+  border: none;
+  box-shadow: var(--shadow);
+  
+  &:hover {
+    box-shadow: var(--shadow-hover);
+  }
+}
+
+.badge {
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-weight: 500;
+  font-size: 12px;
+}
+
+.alert {
+  border-radius: 12px;
+  border: none;
+  box-shadow: var(--shadow);
+  padding: 16px;
+}
+
+.input-group-text {
+  border-radius: 12px 0 0 12px;
+  border: 2px solid #eee;
+  border-right: none;
+  background: white;
+  padding: 14px;
+}
+
+.input-group .form-control {
+  border-radius: 0 12px 12px 0;
+  border-left: none;
+}
+
+// Custom scrollbar
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--main-color);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--main-color-dark);
+}
+
+// Custom Toaster Styles
+.toast-success {
+  background-color: var(--main-color) !important;
+  color: white !important;
+  .toast-title {
+    color: white !important;
+  }
+  .toast-message {
+    color: white !important;
+  }
+}

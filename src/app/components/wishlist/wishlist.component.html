@@ -1,0 +1,82 @@
+<!-- Wishlist Section -->
+<section class="bg-white rounded-4 shadow-lg p-4 my-4 w-75 mx-auto border border-light">
+  <!-- Wishlist Header -->
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h1 class="h3 fw-bold text-main mb-0">
+      <i class="fa-solid fa-heart me-2"></i>Your Wishlist
+    </h1>
+    <div class="bg-light rounded-pill px-3 py-2">
+      <span class="text-muted me-2">Items:</span>
+      <span class="fw-bold text-main fs-5">{{wishlistItems.length}}</span>
+    </div>
+  </div>
+
+  @if(wishlistItems.length === 0) {
+    <div class="text-center py-5">
+      <i class="fas fa-heart-broken text-muted fa-4x mb-3"></i>
+      <h3 class="text-muted mb-3">Your wishlist is empty</h3>
+      <p class="text-muted mb-4">Add items to your wishlist to see them here</p>
+      <button class="btn btn-main rounded-pill px-4 py-2" routerLink="/home">
+        <i class="fas fa-shopping-bag me-2"></i>Start Shopping
+      </button>
+    </div>
+  } @else {
+    <!-- Wishlist Items Container -->
+    <div class="border rounded-3 overflow-hidden mb-4 shadow-sm">
+      @for (item of wishlistItems; track item.id) {
+        <div class="row align-items-center g-0 border-bottom py-3 hover-bg-light transition-all">
+          <!-- Product Image Column -->
+          <div class="col-md-2 px-3">
+            <img [src]="item.imageCover" 
+                 class="img-fluid rounded-3 border shadow-sm" 
+                 [alt]="item.title" 
+                 style="height: 70px; width: 70px; object-fit: cover;"
+                 [routerLink]="['/details', item.id]">
+          </div>
+          
+          <!-- Product Info Column -->
+          <div class="col-md-7 px-3">
+            <h3 class="h6 fw-bold mb-1 text-truncate">{{item.title}}</h3>
+            <div class="d-flex align-items-center gap-2">
+              <p class="text-main fw-medium mb-0">{{item.price | currency:'GBP'}}</p>
+              <span class="badge bg-light text-dark">{{item.category.name}}</span>
+            </div>
+            <div class="mt-1">
+              <i class="fas fa-star text-warning"></i>
+              <small class="text-muted ms-1">{{item.ratingsAverage}}</small>
+            </div>
+          </div>
+          
+          <!-- Action Buttons Column -->
+          <div class="col-md-3 d-flex align-items-center justify-content-end pe-3 gap-2">
+            <!-- Add to Cart Button -->
+            <button class="btn btn-sm btn-main rounded-pill px-3 py-2" (click)="addToCart(item.id)">
+              <i class="fas fa-shopping-cart me-1"></i>
+              Add to Cart
+            </button>
+            
+            <!-- Remove Button -->
+            <button class="btn btn-sm btn-outline-danger rounded-circle p-2" (click)="removeFromWishlist(item.id)">
+              <i class="fa-solid fa-trash-can"></i>
+            </button>
+          </div>
+        </div>
+      }
+    </div>
+
+    <!-- Actions Section -->
+    <div class="d-flex justify-content-between align-items-center">
+      <!-- Clear Wishlist Button -->
+      <button class="btn btn-outline-danger rounded-pill px-4 py-2" (click)="clearWishlist()">
+        <i class="fa-solid fa-trash-can me-2"></i>
+        Clear Wishlist
+      </button>
+      
+      <!-- Continue Shopping Button -->
+      <button class="btn btn-main btn-lg rounded-pill px-4 py-2" routerLink="/home">
+        <i class="fa-solid fa-shopping-bag me-2"></i>
+        Continue Shopping
+      </button>
+    </div>
+  }
+</section> 

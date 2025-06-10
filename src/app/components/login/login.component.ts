@@ -1,0 +1,80 @@
+import { Component, inject } from '@angular/core';
+import {
+  AbstractControl,
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
+import { AuthService } from '../../core/services/auth.service';
+import { HttpErrorResponse } from '@angular/common/http';
+import { NgClass } from '@angular/common';
+import { Router, RouterLink } from '@angular/router';
+
+@Component({
+  selector: 'app-login',
+  standalone: true,
+  imports: [ReactiveFormsModule, RouterLink, NgClass],
+  templateUrl: './login.component.html',
+  styleUrl: './login.component.scss',
+})
+export class LoginComponent {
+  private readonly _AuthService = inject(AuthService);
+  private readonly _FormBuilder = inject(FormBuilder);
+  private readonly _Router = inject(Router);
+
+  msgError: string = '';
+  isLoading: boolean = false;
+  msgSuccess: boolean = false;
+  showPassword: boolean = false;
+
+  loginForm: FormGroup = this._FormBuilder.group({
+    email: [null, [Validators.required, Validators.email]],
+    password: [null, [Validators.required, Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,}$/)]],
+  });
+
+  confirmPassword(g: AbstractControl) {
+    if (g.get('password')?.value === g.get('rePassword')?.value) {
+      return null;
+    } else {
+      return { mismatch: true };
+    }
+  }
+
+  loginSubmit(): void {
+    if (this.loginForm.valid) {
+      this.isLoading = true;
+      this._AuthService.setloginForm(this.loginForm.value).subscribe({
+        next: (res) => {
+          // action after Res success
+          if (res.message === 'success') {
+            this.msgSuccess = true;
+            //1- save Token
+            localStorage.setItem('userToken', res.token);
+
+            // 2 - Decode Token
+            this._AuthService.saveUserData();
+
+            //3- navigate home comp
+            // setTimeout(() => {
+            //   this._Router.navigate(['/home']);
+            // }, 2000);
+            this._Router.navigate(['/home']);
+          }
+          // console.log(res);
+          this.isLoading = false;
+        },
+        error: (err: HttpErrorResponse) => {
+          // Showing error in html for user
+          this.msgError = err.error.message;
+          console.log(err);
+          this.isLoading = false;
+        },
+      });
+    } else {
+      this.loginForm.setErrors({ mismatch: true });
+      this.loginForm.markAllAsTouched();
+    }
+  }
+}

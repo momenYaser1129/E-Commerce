@@ -1,0 +1,81 @@
+.footer {
+  background: linear-gradient(to bottom, #fff, var(--light-color));
+}
+
+.app-download, .payment-partners {
+  transition: var(--transition);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
+  }
+}
+
+.app-icon {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--light-color);
+  border-radius: 16px;
+  transition: var(--transition);
+  
+  &:hover {
+    background: var(--main-color);
+    color: white !important;
+    transform: rotate(10deg);
+  }
+}
+
+.payment-icon-wrapper {
+  background: white;
+  padding: 12px;
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+  
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-hover);
+  }
+}
+
+.payment-icon {
+  width: 45px;
+  height: 45px;
+  object-fit: contain;
+  transition: var(--transition);
+  filter: grayscale(100%);
+  
+  &:hover {
+    filter: grayscale(0%);
+  }
+}
+
+.store-icon {
+  transition: var(--transition);
+  border-radius: 12px;
+  
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+
+.app-store-link {
+  display: inline-block;
+  
+  &:hover {
+    opacity: 0.9;
+  }
+}
+
+.delivery-info {
+  padding-top: 20px;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  
+  i {
+    font-size: 1.2rem;
+  }
+}

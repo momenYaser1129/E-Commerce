@@ -1,0 +1,67 @@
+<!-- @if(cartDetails){ -->
+    <section class="bg-white rounded-4 shadow-lg p-4 my-4 w-75 mx-auto border border-light">
+        <!-- Cart Header -->
+        <div class="d-flex justify-content-between align-items-center mb-4">
+          <h1 class="h3 fw-bold text-main mb-0">
+            <i class="fa-solid fa-shopping-cart me-2"></i>Your Shopping Cart
+          </h1>
+          <div class="bg-light rounded-pill px-3 py-2">
+            <span class="text-muted me-2">Total:</span>
+            
+            <span class="fw-bold text-main fs-5">{{cartDetails.data.totalCartPrice| currency : 'GBP' }}</span>
+          </div>
+        </div>
+        
+        <!-- Cart Items Container -->
+        <div class="border rounded-3 overflow-hidden mb-4 shadow-sm">
+          @for (item of cartDetails.data.products; track item.product.id) {
+            <div class="row align-items-center g-0 border-bottom py-3 hover-bg-light transition-all">
+              <!-- Product Image Column -->
+              <div class="col-md-2 px-3">
+                <img [src]="item.product.imageCover" class="img-fluid rounded-3 border shadow-sm" [alt]="item.product.title" style="height: 70px; width: 70px; object-fit: cover;">
+              </div>
+              
+              <!-- Product Info Column -->
+              <div class="col-md-7 px-3">
+                <h3 class="h6 fw-bold mb-1 text-truncate">{{item.product.title}}</h3>
+                <p class="text-main fw-medium mb-0">{{item.price | currency:'GBP'}}</p>
+              </div>
+              
+              <!-- Action Buttons Column -->
+              <div class="col-md-3 d-flex align-items-center justify-content-end pe-3">
+                <!-- Quantity Controls -->
+                <div class="d-flex align-items-center border rounded-pill px-2 py-1 me-3 bg-light shadow-sm">
+                  <button class="btn btn-sm text-success p-0 px-1" (click)="updateCart(item.product.id,item.count - 1)" >
+                    <i class="fa-solid fa-minus"></i>
+                  </button>
+                  <span class="fw-bold mx-2">{{item.count}}</span>
+                  <button class="btn btn-sm text-success p-0 px-1" (click)="updateCart(item.product.id,item.count + 1)" >
+                    <i class="fa-solid fa-plus"></i>
+                  </button>
+                </div>
+                
+                <!-- Remove Button -->
+                <button class="btn btn-sm btn-outline-danger rounded-circle p-2 " (click)="removeItem(item.product.id)">
+                  <i class="fa-solid fa-trash-can"></i>
+                </button>
+              </div>
+            </div>
+          }
+        </div>
+      
+          <!-- Actions Section -->
+    <div class="d-flex justify-content-between align-items-center">
+        <!-- Clear Cart Button -->
+        <button class="btn btn-outline-danger rounded-pill px-4 py-2" (click)="clearCart()">
+          <i class="fa-solid fa-trash-can me-2"></i>
+          Clear Cart
+        </button>
+        
+        <!-- Checkout Button -->
+        <button class="btn btn-main btn-lg rounded-pill px-4 py-2" [routerLink]="['/orders',cartDetails.data._id]">
+          <i class="fa-solid fa-credit-card me-2"></i>
+          Proceed to Checkout
+        </button>
+      </div>
+      </section>
+<!-- } -->
