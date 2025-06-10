@@ -1,11 +1,7 @@
 :root {
-  --border-radius: 12px;
-  --transition: all 0.3s ease;
-  --border-color: #e0e0e0;
-  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
-  --shadow-lg: 0 8px 30px rgba(0, 0, 0, 0.12);
-  --bg-light: #f8f9fa;
+  --radius: 12px;
+  --border: 2px solid #e0e0e0;
+  --bg: #f8f9fa;
 }
 
 .filter-sidebar {
@@ -13,15 +9,9 @@
   top: 20px;
   background: white;
   border-radius: 16px;
-  box-shadow: var(--shadow-md);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   overflow: hidden;
-  transition: var(--transition);
   border: 1px solid rgba(0, 0, 0, 0.05);
-
-  &:hover {
-    box-shadow: var(--shadow-lg);
-    transform: translateY(-2px);
-  }
 }
 
 .filter-header {
@@ -37,9 +27,7 @@
     align-items: center;
     
     i {
-      font-size: 1.1rem;
       margin-right: 0.75rem;
-      opacity: 0.9;
     }
   }
 }
@@ -50,24 +38,9 @@
 
 .filter-section {
   margin-bottom: 2rem;
-  position: relative;
 
   &:last-child {
     margin-bottom: 0;
-  }
-
-  &::after {
-    content: '';
-    position: absolute;
-    bottom: -1rem;
-    left: 0;
-    right: 0;
-    height: 1px;
-    background: linear-gradient(to right, transparent, rgba(0, 0, 0, 0.05), transparent);
-  }
-
-  &:last-child::after {
-    display: none;
   }
 }
 
@@ -77,31 +50,23 @@
   font-weight: 600;
   margin-bottom: 1rem;
   color: #2c3e50;
-  font-size: 1rem;
 
   i {
     margin-right: 0.75rem;
     color: var(--main-color);
-    font-size: 1.1rem;
   }
 }
 
 .filter-select {
-  border-radius: var(--border-radius);
-  border: 2px solid var(--border-color);
+  border-radius: var(--radius);
+  border: var(--border);
   padding: 0.75rem;
-  font-size: 0.95rem;
-  transition: var(--transition);
-  background-color: var(--bg-light);
+  background-color: var(--bg);
   cursor: pointer;
 
   &:hover, &:focus {
     border-color: var(--main-color);
     background-color: white;
-  }
-
-  &:focus {
-    box-shadow: 0 0 0 0.2rem rgba(var(--main-color-rgb), 0.15);
   }
 }
 
@@ -111,102 +76,69 @@
     grid-template-columns: 1fr 1fr;
     gap: 0.75rem;
     margin-bottom: 1.5rem;
-
-    .input-group {
-      border-radius: var(--border-radius);
-      overflow: hidden;
-      box-shadow: var(--shadow-sm);
-      transition: var(--transition);
-
-      &:hover {
-        box-shadow: var(--shadow-md);
-      }
-    }
-
-    .input-group-text {
-      background: var(--bg-light);
-      border: 2px solid var(--border-color);
-      color: #6c757d;
-      font-weight: 600;
-      font-size: 0.9rem;
-      min-width: 50px;
-      justify-content: center;
-      padding: 0.75rem;
-    }
-
-    .form-control {
-      border: 2px solid var(--border-color);
-      padding: 0.75rem;
-      font-size: 0.95rem;
-      text-align: center;
-      font-weight: 500;
-      background-color: white;
-
-      &:focus {
-        border-color: var(--main-color);
-        box-shadow: 0 0 0 0.2rem rgba(var(--main-color-rgb), 0.15);
-      }
-    }
   }
 
-  .price-slider {
-    .range-slider {
-      position: relative;
-      height: 50px;
-      display: flex;
-      align-items: center;
-      padding: 0 8px;
+  .input-group {
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
 
-      input[type="range"] {
-        position: absolute;
-        width: 100%;
-        height: 3px;
-        background: none;
-        pointer-events: none;
+  .input-group-text {
+    background: var(--bg);
+    border: var(--border);
+    color: #6c757d;
+    font-weight: 600;
+    min-width: 50px;
+    justify-content: center;
+    padding: 0.75rem;
+  }
 
-        &::-webkit-slider-thumb,
-        &::-moz-range-thumb {
-          height: 20px;
-          width: 20px;
-          border-radius: 50%;
-          background: var(--main-color);
-          cursor: pointer;
-          pointer-events: auto;
-          border: none;
-          box-shadow: var(--shadow-sm);
-          transition: var(--transition);
+  .form-control {
+    border: var(--border);
+    padding: 0.75rem;
+    text-align: center;
+    font-weight: 500;
+    background-color: white;
 
-          &:hover {
-            transform: scale(1.1);
-            box-shadow: var(--shadow-md);
-          }
-        }
+    &:focus {
+      border-color: var(--main-color);
+    }
+  }
+}
 
-        &::-webkit-slider-thumb {
-          margin-top: -8px;
-          -webkit-appearance: none;
-        }
+.price-slider {
+  .range-slider {
+    height: 50px;
+    display: flex;
+    align-items: center;
+    padding: 0 8px;
 
-        &::-webkit-slider-runnable-track,
-        &::-moz-range-track {
-          width: 100%;
-          height: 3px;
-          background: var(--border-color);
-          border-radius: 3px;
-        }
+    input[type="range"] {
+      width: 100%;
+      height: 3px;
+      background: none;
+      pointer-events: none;
 
-        &:focus {
-          outline: none;
-        }
+      &::-webkit-slider-thumb,
+      &::-moz-range-thumb {
+        height: 20px;
+        width: 20px;
+        border-radius: 50%;
+        background: var(--main-color);
+        cursor: pointer;
+        pointer-events: auto;
+        border: none;
       }
 
-      &::before {
-        content: '';
-        position: absolute;
-        height: 3px;
-        background: var(--main-color);
+      &::-webkit-slider-thumb {
+        -webkit-appearance: none;
+      }
+
+      &::-webkit-slider-runnable-track,
+      &::-moz-range-track {
         width: 100%;
-        pointer-events: none;
+        height: 3px;
+        background: #e0e0e0;
         border-radius: 3px;
       }
     }
@@ -214,21 +146,17 @@
 }
 
 .btn-outline-secondary {
-  border-radius: var(--border-radius);
+  border-radius: var(--radius);
   padding: 0.75rem;
-  font-size: 0.95rem;
   font-weight: 600;
-  transition: var(--transition);
-  border: 2px solid var(--border-color);
+  border: var(--border);
   color: #6c757d;
   background: white;
 
   &:hover {
-    background: var(--bg-light);
+    background: var(--bg);
     border-color: var(--main-color);
     color: var(--main-color);
-    transform: translateY(-1px);
-    box-shadow: var(--shadow-md);
   }
 
   i {
