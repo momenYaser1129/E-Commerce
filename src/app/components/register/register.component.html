@@ -177,7 +177,18 @@
       </div>
       }
     </div>
-
+    <div class="d-flex flex-column align-items-center gap-3 mb-4 mt-4">
+      <div class="w-100 position-relative">
+        <hr class="text-muted opacity-25">
+        <span class="position-absolute top-50 start-50 translate-middle bg-main-light px-3 text-muted small">
+          {{ 'auth.register.or' | translate }}
+        </span>
+      </div>
+      <a routerLink="/login" class="text-main text-decoration-none d-flex align-items-center hover-scale">
+        <i class="fas fa-sign-in-alt me-2"></i>
+        <span>{{ 'auth.register.login' | translate }}</span>
+      </a>
+    </div>
     <button
       [disabled]="isLoading"
       type="submit"

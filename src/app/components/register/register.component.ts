@@ -10,13 +10,13 @@ import {
 import { AuthService } from '../../core/services/auth.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { NgClass } from '@angular/common';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [ReactiveFormsModule, NgClass, TranslateModule],
+  imports: [ReactiveFormsModule, NgClass, TranslateModule, RouterLink],
   templateUrl: './register.component.html',
   styleUrl: './register.component.scss',
 })

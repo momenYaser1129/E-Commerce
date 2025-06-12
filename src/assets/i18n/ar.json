@@ -23,6 +23,7 @@
             "password": "كلمة المرور",
             "passwordPlaceholder": "أدخل كلمة المرور",
             "forgotPassword": "نسيت كلمة المرور؟",
+            "register": "ليس لديك حساب؟ سجل",
             "loginButton": "تسجيل الدخول",
             "loggingIn": "جاري تسجيل الدخول...",
             "success": "تم تسجيل الدخول بنجاح!",
@@ -45,7 +46,9 @@
             "confirmPasswordPlaceholder": "تأكيد كلمة المرور",
             "phone": "رقم الهاتف",
             "phonePlaceholder": "أدخل رقم هاتفك",
-            "registerButton": "تسجيل",
+            "login": "لديك حساب؟ تسجيل الدخول",
+            "or": "أو",
+        "registerButton": "تسجيل",
             "creatingAccount": "جاري إنشاء الحساب...",
             "success": "تم التسجيل بنجاح!",
             "errors": {

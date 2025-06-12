@@ -39,7 +39,7 @@ export class ForgetpasswordComponent {
 
   resetPassword: FormGroup = this._FormBuilder.group({
     email: [null, [Validators.required, Validators.email]],
-    newPassword: [null, [Validators.required, Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,}$/)]],
+    newPassword: [null, [Validators.required, Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d@$!%*?&^#~()\-_=+{}[\]|\\:;\"'<>,./]{8,}$/)]],
   });
 
   // functions to make action submit and take the service from auth service
