@@ -146,7 +146,7 @@
     <div class="form-group mb-4">
       <label for="phone" class="form-label fw-medium">{{ 'auth.register.phone' | translate }}</label>
       <div class="input-group">
-        <span class="input-group-text bg-white" [ngClass]="{'border-end-0': _TranslateService.currentLang === 'en', 'border-start-0': _TranslateService.currentLang === 'ar'}">
+        <span class="input-group-text bg-white" [ngClass]="{'border-start-0': _TranslateService.currentLang === 'en', 'border-end-0': _TranslateService.currentLang === 'ar'}">
           <i class="fas fa-phone text-main"></i>
         </span>
         <input
