@@ -95,7 +95,7 @@ export class RegisterComponent {
             this.msgSuccess = true;
             setTimeout(() => {
               this._Router.navigate(['/login']);
-            }, 2000);
+            }, 1000);
           }
           this.isLoading = false;
         },
