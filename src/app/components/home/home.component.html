@@ -95,11 +95,12 @@
             [src]="cat.image"
             [alt]="cat.name"
             class="w-100 object-fit-cover"
-            height="240px"
+            height="200px"
           />
 
-          <div class="card-body text-center bg-white">
-            <h3 class="h6 fw-bold mb-0">{{ cat.name }}</h3>
+          <div class="card-body text-center d-flex justify-content-center align-items-center  bg-white">
+            <h6 class="fw-bold mb-0  text-truncate">{{ cat.name }}</h6>
+            
           </div>
         </div>
       </div>
@@ -151,6 +152,7 @@
             [routerLink]="['/details',product.id]"
             [src]="product.imageCover"
             class="card-img-top w-100 object-fit-cover z-index-9" 
+            height="250px"
             [alt]="product.title"
           />
         </div>

@@ -70,8 +70,8 @@ export class HomeComponent implements OnInit, OnDestroy {
     autoplayHoverPause: true,
     navSpeed: 700,
     navText: [
-      '<i class="fas fa-chevron-left"></i>',
-      '<i class="fas fa-chevron-right"></i>',
+      '',
+      '',
     ],
     responsive: {
       0: { items: 2 },
@@ -79,7 +79,7 @@ export class HomeComponent implements OnInit, OnDestroy {
       740: { items: 4 },
       940: { items: 6 },
     },
-    nav: true,
+    nav: false,
   };
 
   ngOnInit(): void {
