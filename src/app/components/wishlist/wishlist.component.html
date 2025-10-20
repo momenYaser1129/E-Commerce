@@ -11,7 +11,7 @@
     </div>
   </div>
 
-  @if(wishlistItems.length === 0) {
+  @if(!isLoading && wishlistItems.length === 0) {
     <div class="text-center py-5">
       <i class="fas fa-heart-broken text-muted fa-4x mb-3"></i>
       <h3 class="text-muted mb-3">Your wishlist is empty</h3>
@@ -27,13 +27,13 @@
         <div class="row align-items-center g-0 border-bottom py-3 hover-bg-light transition-all">
           <!-- Product Image Column -->
           <div class="col-3 col-md-2 px-2 px-md-3">
-            <img [src]="item.imageCover" 
-                 class="img-fluid rounded-3 border shadow-sm" 
-                 [alt]="item.title" 
+            <img [src]="item.imageCover"
+                 class="img-fluid rounded-3 border shadow-sm"
+                 [alt]="item.title"
                  style="height: 60px; width: 60px; object-fit: cover;"
                  [routerLink]="['/details', item.id]">
           </div>
-          
+
           <!-- Product Info Column -->
           <div class="col-9 col-md-7 px-2 px-md-3">
             <h3 class="h6 fw-bold mb-1 text-truncate">{{item.title}}</h3>
@@ -46,7 +46,7 @@
               <small class="text-muted ms-1">{{item.ratingsAverage}}</small>
             </div>
           </div>
-          
+
           <!-- Action Buttons Column -->
           <div class="col-12 col-md-3 d-flex align-items-center justify-content-end gap-2 mt-3 mt-md-0 px-2 px-md-3">
             <!-- Add to Cart Button -->
@@ -54,7 +54,7 @@
               <i class="fas fa-shopping-cart me-1"></i>
               <span class="d-none d-md-inline">Add to Cart</span>
             </button>
-            
+
             <!-- Remove Button -->
             <button class="btn btn-sm btn-outline-danger rounded-circle p-2" (click)="removeFromWishlist(item.id)">
               <i class="fa-solid fa-trash-can"></i>
@@ -71,7 +71,7 @@
         <i class="fa-solid fa-trash-can me-2"></i>
         Clear Wishlist
       </button>
-      
+
       <!-- Continue Shopping Button -->
       <button class="btn btn-main rounded-pill px-4 py-2 w-100 w-md-auto" routerLink="/home">
         <i class="fa-solid fa-shopping-bag me-2"></i>
@@ -79,4 +79,4 @@
       </button>
     </div>
   }
-</section> 
+</section>

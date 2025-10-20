@@ -6,6 +6,7 @@ import { IProduct } from '../../core/interfaces/iproduct';
 import { Subscription } from 'rxjs';
 import { ToastrService } from 'ngx-toastr';
 import { CartService } from '../../core/services/cart.service';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-wishlist',
@@ -18,22 +19,28 @@ export class WishlistComponent implements OnInit, OnDestroy {
   private readonly _WishlistService = inject(WishlistService);
   private readonly _CartService = inject(CartService);
   private readonly _ToastrService = inject(ToastrService);
-
+  private readonly spinner = inject(NgxSpinnerService);
   wishlistItems: IProduct[] = [];
   wishlistSub!: Subscription;
-
+  isLoading: boolean = false;
   ngOnInit(): void {
     this.getWishlistItems();
   }
 
   getWishlistItems(): void {
+    this.isLoading = true;
+    this.spinner.show();
     this.wishlistSub = this._WishlistService.getProductWishlist().subscribe({
       next: (res) => {
         this.wishlistItems = res.data;
+        this.isLoading = false;
+        this.spinner.hide();
       },
       error: (err) => {
         console.log(err);
-      }
+        this.isLoading = false;
+        this.spinner.hide();
+        }
     });
   }
 
@@ -47,6 +54,7 @@ export class WishlistComponent implements OnInit, OnDestroy {
         console.log(err);
       }
     });
+    this.isLoading = false;
   }
 
   addToCart(id: string): void {
@@ -81,4 +89,4 @@ export class WishlistComponent implements OnInit, OnDestroy {
       this.wishlistSub.unsubscribe();
     }
   }
-} 
+}
