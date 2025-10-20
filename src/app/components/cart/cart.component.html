@@ -10,8 +10,8 @@
       <span class="fw-bold text-main fs-5">{{cartDetails.data.totalCartPrice| currency : 'GBP' }}</span>
     </div>
   </div>
-  
-  @if(cartDetails.data.products.length === 0) {
+
+  @if( cartDetails.data.products.length === 0 && !isLoading) {
     <div class="text-center py-5">
       <i class="fas fa-shopping-cart text-muted fa-4x mb-3"></i>
       <h3 class="text-muted mb-3">Your cart is empty</h3>
@@ -27,13 +27,13 @@
         <div class="row align-items-center g-0 border-bottom py-3 hover-bg-light transition-all">
           <!-- Product Image Column -->
           <div class="col-3 col-md-2 px-2 px-md-3">
-            <img [src]="item.product.imageCover" 
-                 class="img-fluid rounded-3 border shadow-sm" 
-                 [alt]="item.product.title" 
+            <img [src]="item.product.imageCover"
+                 class="img-fluid rounded-3 border shadow-sm"
+                 [alt]="item.product.title"
                  style="height: 60px; width: 60px; object-fit: cover;"
                  [routerLink]="['/details', item.product.id]">
           </div>
-          
+
           <!-- Product Info Column -->
           <div class="col-9 col-md-7 px-2 px-md-3">
             <h3 class="h6 fw-bold mb-1 text-truncate">{{item.product.title}}</h3>
@@ -42,7 +42,7 @@
               <span class="badge bg-light text-dark">{{item.product.category.name}}</span>
             </div>
           </div>
-          
+
           <!-- Action Buttons Column -->
           <div class="col-12 col-md-3 d-flex align-items-center justify-content-end gap-2 mt-3 mt-md-0 px-2 px-md-3">
             <!-- Quantity Controls -->
@@ -55,7 +55,7 @@
                 <i class="fa-solid fa-plus"></i>
               </button>
             </div>
-            
+
             <!-- Remove Button -->
             <button class="btn btn-sm btn-outline-danger rounded-circle p-2" (click)="removeItem(item.product.id)">
               <i class="fa-solid fa-trash-can"></i>
@@ -72,7 +72,7 @@
         <i class="fa-solid fa-trash-can me-2"></i>
         Clear Cart
       </button>
-      
+
       <!-- Checkout Button -->
       <button class="btn btn-main btn-lg rounded-pill px-4 py-2 w-100 w-md-auto" [routerLink]="['/orders',cartDetails.data._id]">
         <i class="fa-solid fa-credit-card me-2"></i>
